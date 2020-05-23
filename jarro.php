@@ -8,7 +8,7 @@ class jarro{
     $this->qnt_agua = 0;
     $this->nome = $nome;
     $this->tamanho = $tamanho;
-    echo("Jarro ".$nome." criado!");
+    echo("Jarro ".$nome." criado!\n");
   }
 
   public function __destruct(){

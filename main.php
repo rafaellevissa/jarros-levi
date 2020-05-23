@@ -1,4 +1,8 @@
 <?php
+require_once'desenho.php';
+require_once'jarro.php';
+require_once'jogador.php';
+
 echo"Jogo dos jarros \n";
 
 $opcao=0;
@@ -14,18 +18,18 @@ while($opcao!=3){
   $jogada=0;
   
   echo("------Jogo dos JARROS-----\n");
-  echo("Melhor Jogador: ".$Jogador_best." com".$ponto_best."jogadas\n");
+  echo("Melhor Jogador: ".$Jogador_best." com ".$ponto_best." jogadas\n");
   echo("Menu:\n");
   echo("1- Jogar\n");
   echo("2- Opções\n");
   echo("3- Sair\n");
 
-  cin>>opcao;
+  $opcao = readline();
 
-  if(opcao==1){
-          echo("Objetivo: encher um dos jarros com ".objetivo." litros\n");
+  if($opcao==1){
+          echo("Objetivo: encher um dos jarros com ".$objetivo." litros\n");
           echo("Digite o nome do Jogador:\n");
-          cin>>Jogador1;
+          $Jogador1= readline();
           //criar os objetos
           $player1 = new Jogador($Jogador1, 0);
           $j1 = new Jarro("1",$capacidade_j1,0);
@@ -38,10 +42,10 @@ while($opcao!=3){
           while($j1->qnt_agua!=$objetivo && $j2->qnt_agua!=$objetivo){
               $jogada++;
               echo("Qual jarro deseja escolher?\n");
-              cin>>jarro_selecionado;
+              $jarro_selecionado = readline();
               echo("Qual ação deseja?\n");
               echo("(E)ncher, E(s)vaziar, (T)rocar\n");
-              cin>>op;
+              $op= readline();
               if ($jarro_selecionado==1){                    
                   if ($op==("E")||$op==("e")){
                     $j1=$player1->encher($j1);
@@ -77,15 +81,15 @@ while($opcao!=3){
           echo("1- Alterar jarros\n");
           echo("2- Alterar objetivo\n");
           echo("3- Retornar ao menu principal\n");
-          cin>>opcao2;
+          $opcao2 = readline();
           if ($opcao2==1){
               echo("Digite o tamanho do jarro maior:\n");
-              cin>>capacidade_j1;
+              $capacidade_j1 = readline();
               echo("Digite o tamanho do jarro menor:\n");
-              cin>>capacidade_j2;
+              $capacidade_j2 = readline();
           }else if ($opcao2==2){
               echo("Digite o valor de agua que será o objetivo:\n");
-              cin>>objetivo;
+              $objetivo = readline();
           }
       }
   }else if($opcao==3){
@@ -94,4 +98,4 @@ while($opcao!=3){
       echo"opção inválida!";
   }
 
-  }
+}
